@@ -20,6 +20,8 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface NoteTaking {
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +30,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLNoteTakingElement extends Components.NoteTaking, HTMLStencilElement {
+    }
+    var HTMLNoteTakingElement: {
+        prototype: HTMLNoteTakingElement;
+        new (): HTMLNoteTakingElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "note-taking": HTMLNoteTakingElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +56,11 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface NoteTaking {
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "note-taking": NoteTaking;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +68,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "note-taking": LocalJSX.NoteTaking & JSXBase.HTMLAttributes<HTMLNoteTakingElement>;
         }
     }
 }

@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-workspace';
+  notes:string[] = ['test1', 'test2', 'test3']
 }
